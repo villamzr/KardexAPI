@@ -6,13 +6,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class KardexMainById {
 	@JsonProperty("kardexInfo")
-	private KardexInfo kardexInfo;
+	private KardexMainInfo kardexInfo;
 
-	public KardexInfo getKardexInfo() {
+	public KardexMainInfo getKardexInfo() {
 		return kardexInfo;
 	}
 
-	public void setKardexInfo(KardexInfo kardexInfo) {
+	public void setKardexInfo(KardexMainInfo kardexInfo) {
 		this.kardexInfo = kardexInfo;
 	}
 }
