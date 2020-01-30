@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import com.kardexapi.dto.KardexMainCreate;
 import com.kardexapi.dto.KardexMainList;
 import com.kardexapi.impl.ImplCreateKardex;
+import com.kardexapi.impl.ImplDeleteByIdKardex;
 import com.kardexapi.impl.ImplGetAllKardex;
 import com.kardexapi.impl.ImplGetByIdKardex;
 import com.kardexapi.impl.ImplPutByIdKardex;
@@ -15,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,6 +38,9 @@ public class CKardexMain {
 	
 	@Autowired
 	ImplPutByIdKardex implPutByIdKardex;
+	
+	@Autowired
+	ImplDeleteByIdKardex implDeleteByIdKardex;
 
 	@GetMapping("/kardex")
 	public Map<String, Object> getAllKardexMain() {
@@ -61,27 +66,10 @@ public class CKardexMain {
 			@Valid @RequestBody KardexMainList kardexMainBody) {
 		return implPutByIdKardex.executePutByIdKardex(KardexMainId.toString(), kardexMainBody);
 	}
-	//
-	// /**
-	// * This method expose the end point that delete kardex by id.
-	// *
-	// * @param KardexMainId
-	// * id contain kardex to be deleted.
-	// * @return responseEntity response OK or Server Error.
-	// **/
-	// @DeleteMapping("/kardex/{id}")
-	// public ResponseEntity<?> deleteByIdKardexMain(@PathVariable(value = "id")
-	// Long KardexMainId)
-	// {
-	// try
-	// {
-	//
-	// }
-	// catch (Exception e)
-	// {
-	//
-	// }
-	//
-	// return null;
-	// }
+	
+	 @DeleteMapping("/kardex/{id}")
+	 public Map<String, Object> deleteByIdKardexMain(@PathVariable(value = "id")
+	 Long KardexMainId){
+		 return implDeleteByIdKardex.executeDeleteByIdKardex(KardexMainId.toString());
+	 }
 }
