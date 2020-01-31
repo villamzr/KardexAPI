@@ -55,16 +55,7 @@ public class CKardexMain
 	{
 		return implGetByIdKardex.executeGetByIdKardex(KardexMainId.toString());
 	}
-	//
-	// /**
-	// * This method expose the end point that update kardex by id.
-	// *
-	// * @param KardexMainId
-	// * id contain kardex to be updated.
-	// * @param kardexMainBody
-	// * containt the body with the kardex information.
-	// * @return responseEntity response OK or Server Error.
-	// **/
+	
 	// @PutMapping("/kardex/{id}")
 	// public ResponseEntity<Map<String, String>> updateKardex(@PathVariable(value = "id") Long KardexMainId,
 	// @Valid @RequestBody KardexMainList kardexMainBody)
