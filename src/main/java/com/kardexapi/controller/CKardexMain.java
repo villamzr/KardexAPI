@@ -35,10 +35,10 @@ public class CKardexMain {
 
 	@Autowired
 	ImplGetByIdKardex implGetByIdKardex;
-	
+
 	@Autowired
 	ImplPutByIdKardex implPutByIdKardex;
-	
+
 	@Autowired
 	ImplDeleteByIdKardex implDeleteByIdKardex;
 
@@ -66,10 +66,9 @@ public class CKardexMain {
 			@Valid @RequestBody KardexMainList kardexMainBody) {
 		return implPutByIdKardex.executePutByIdKardex(KardexMainId.toString(), kardexMainBody);
 	}
-	
-	 @DeleteMapping("/kardex/{id}")
-	 public Map<String, Object> deleteByIdKardexMain(@PathVariable(value = "id")
-	 Long KardexMainId){
-		 return implDeleteByIdKardex.executeDeleteByIdKardex(KardexMainId.toString());
-	 }
+
+	@DeleteMapping("/kardex/{id}")
+	public ResponseEntity<?> deleteByIdKardexMain(@PathVariable(value = "id") Long KardexMainId) {
+		return implDeleteByIdKardex.executeDeleteByIdKardex(KardexMainId.toString());
+	}
 }

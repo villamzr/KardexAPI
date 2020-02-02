@@ -12,35 +12,28 @@ import com.kardexapi.dto.KardexMainList;
 import com.kardexapi.utils.GenericRestTemplate;
 
 @Service
-public class ServiceCreateKardex
-{
+public class ServiceCreateKardex {
 	private static final Logger log = LoggerFactory.getLogger(ServiceGetAllKardex.class);
 	private RestTemplate restTemplate;
 	private ResponseEntity<KardexMainCreate> restTemplateResult;
 
-	public RestTemplate consume(String url, KardexMainList map)
-	{
+	public RestTemplate consume(String url, KardexMainList map) {
 		log.info("ingresando al método consume() de la clase ServiceCreateKardex");
-		try
-		{
+		try {
 			HttpEntity<KardexMainList> request = new HttpEntity<>(map);
 			restTemplate = GenericRestTemplate.restTemplate();
 			setRestTemplateResult(restTemplate.postForEntity(url, request, KardexMainCreate.class));
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			log.error("Ha ocurrido un error al consumir el servicio del endpoint http://localhost:8090/kardex");
 		}
 		return restTemplate;
 	}
 
-	public ResponseEntity<KardexMainCreate> getRestTemplateResult()
-	{
+	public ResponseEntity<KardexMainCreate> getRestTemplateResult() {
 		return restTemplateResult;
 	}
 
-	public void setRestTemplateResult(ResponseEntity<KardexMainCreate> restTemplateResult)
-	{
+	public void setRestTemplateResult(ResponseEntity<KardexMainCreate> restTemplateResult) {
 		this.restTemplateResult = restTemplateResult;
 	}
 }

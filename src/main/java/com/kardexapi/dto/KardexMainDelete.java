@@ -6,33 +6,33 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class KardexMainDelete {
 	@JsonProperty("Message")
-	private String Message;
+	private String message;
 	@JsonProperty("HttpStatus")
-	private String HttpStatus;
-	@JsonProperty("KardexIdDeleted")
-	private String KardexIdDeleted;
+	private String httpStatus;
+	@JsonProperty("KardexId")
+	private String KardexId;
 
 	public String getMessage() {
-		return Message;
+		return this.message;
 	}
 
 	public void setMessage(String message) {
-		Message = message;
+		this.message = message;
 	}
 
 	public String getHttpStatus() {
-		return HttpStatus;
+		return this.httpStatus;
 	}
 
 	public void setHttpStatus(String httpStatus) {
-		HttpStatus = httpStatus;
+		this.httpStatus = httpStatus;
 	}
 
 	public String getKardexIdDeleted() {
-		return KardexIdDeleted;
+		return this.KardexId;
 	}
 
-	public void setKardexIdDeleted(String KardexIdDeleted) {
-		this.KardexIdDeleted = KardexIdDeleted;
+	public void setKardexIdDeleted(String KardexId) {
+		this.KardexId = KardexId;
 	}
 }

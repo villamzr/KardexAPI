@@ -2,7 +2,6 @@ package com.kardexapi.services;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -17,14 +16,13 @@ public class ServiceDeleteKardex {
 	private RestTemplate restTemplate;
 	private ResponseEntity<KardexMainDelete> restTemplateResult;
 	
-	public RestTemplate consume(String url, String id) {
+	public RestTemplate consume(String url) {
 		log.info("ingresando al método consume() de la clase ServiceDeleteKardex");
 		try {
-			HttpEntity<String> request = new HttpEntity<>(id);
 			restTemplate = GenericRestTemplate.restTemplate();
-			setRestTemplateResult(restTemplate.exchange(url,HttpMethod.DELETE, request, KardexMainDelete.class)); 
+			setRestTemplateResult(restTemplate.exchange(url,HttpMethod.DELETE, null, KardexMainDelete.class)); 
 		} catch (Exception e) {
-			log.error("Ha ocurrido un error al consumir el servicio del endpoint http://localhost:8090/kardex");
+			log.error("Ha ocurrido un error al consumir el servicio del endpoint "+url);
 		}
 		return restTemplate;
 	}
