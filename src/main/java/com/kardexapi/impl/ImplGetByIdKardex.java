@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
 
 import com.kardexapi.dto.KardexMainById;
-import com.kardexapi.dto.KardexMainInfo;
 import com.kardexapi.services.ServiceGetByIdKardex;
 
 @Configuration
@@ -21,7 +20,6 @@ public class ImplGetByIdKardex
 	private ServiceGetByIdKardex serviceGetByIdKardex;
 	private String url = "http://localhost:8090/kardex/";
 	private ResponseEntity<KardexMainById> restServiceGetByIdKardex;
-	private KardexMainInfo kardexMainInfo = new KardexMainInfo();
 	private Map<String, Object> mapGetByIdKardex = new TreeMap<>();
 
 	public Map<String, Object> executeGetByIdKardex(String id)

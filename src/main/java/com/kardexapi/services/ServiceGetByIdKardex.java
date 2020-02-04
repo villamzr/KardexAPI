@@ -7,11 +7,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.kardexapi.dto.KardexMainById;
+import com.kardexapi.dto.KardexMainInfo;
 import com.kardexapi.utils.GenericRestTemplate;
 @Service
 public class ServiceGetByIdKardex {
 	private static final Logger log = LoggerFactory.getLogger(ServiceGetAllKardex.class);
 	private RestTemplate restTemplate;
+	private KardexMainInfo kardexMainInfo = new KardexMainInfo();
 	private ResponseEntity<KardexMainById> restTemplateResult;
 	
 	public RestTemplate consume(String url) {
