@@ -49,6 +49,11 @@ public class CKardexMain {
 		return ImplGetAllKardex.executeGetAllKardex();
 	}
 
+	@GetMapping("/kardex/{id}")
+	public Map<String, Object> getByIdKardexMain(@PathVariable(value = "id") Long KardexMainId) {
+		return implGetByIdKardex.executeGetByIdKardex(KardexMainId.toString());
+	}
+	
 	@PostMapping("/kardex")
 	public ResponseEntity<KardexMainCreate> createKardexMain(@Valid @RequestBody KardexMainList kardexMainList) {
 		log.info("Ingresando al método createKardexMain() del controlador CKardexMain");
@@ -56,13 +61,8 @@ public class CKardexMain {
 		return implCreateKardex.executeCreateKardex(kardexMainList);
 	}
 
-	@GetMapping("/kardex/{id}")
-	public Map<String, Object> getByIdKardexMain(@PathVariable(value = "id") Long KardexMainId) {
-		return implGetByIdKardex.executeGetByIdKardex(KardexMainId.toString());
-	}
-
 	@PutMapping("/kardex/{id}")
-	public Map<String, Object> updateKardex(@PathVariable(value = "id") Long KardexMainId,
+	public ResponseEntity<?> updateKardex(@PathVariable(value = "id") Long KardexMainId,
 			@Valid @RequestBody KardexMainList kardexMainBody) {
 		return implPutByIdKardex.executePutByIdKardex(KardexMainId.toString(), kardexMainBody);
 	}

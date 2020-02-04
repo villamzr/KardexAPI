@@ -6,26 +6,26 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class KardexMainPut {
 	@JsonProperty("Message")
-	private String Message;
+	private String message;
 	@JsonProperty("HttpStatus")
-	private String HttpStatus;
+	private String httpStatus;
 	@JsonProperty("kardexIdUpdated")
 	private String kardexIdUpdated;
 
 	public String getMessage() {
-		return Message;
+		return this.message;
 	}
 
 	public void setMessage(String message) {
-		Message = message;
+		this.message = message;
 	}
 
 	public String getHttpStatus() {
-		return HttpStatus;
+		return this.httpStatus;
 	}
 
 	public void setHttpStatus(String httpStatus) {
-		HttpStatus = httpStatus;
+		this.httpStatus = httpStatus;
 	}
 
 	public String getKardexIdUpdated() {

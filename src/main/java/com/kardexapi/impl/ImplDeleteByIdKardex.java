@@ -22,6 +22,7 @@ public class ImplDeleteByIdKardex
 	private KardexMainDelete kardexMainDeleteEdit = new KardexMainDelete();
 	private KardexMainDelete kardexMainDelete;
 	private Map<String, Object> bodyMap = new HashMap<>();
+	private ResponseEntity<?> responseEntity;
 	private String url = "http://localhost:8090/kardex/";
 	
 	public ResponseEntity<?> executeDeleteByIdKardex(String id)
@@ -35,6 +36,7 @@ public class ImplDeleteByIdKardex
 			log.info("Obteniendo respuesta del servicio");
 			kardexMainDelete = serviceDeleteKardex.getRestTemplateResult().getBody();
 			bodyMap.put("Response", kardexMainDelete);
+			responseEntity = ResponseEntity.status(HttpStatus.OK).body(bodyMap);
 		}
 		catch (Exception e)
 		{
@@ -44,11 +46,10 @@ public class ImplDeleteByIdKardex
 			kardexMainDeleteEdit.setMessage("Kardex couldn't be deleted");
 			kardexMainDeleteEdit.setKardexIdDeleted(id);
 			bodyMap.put("Response", kardexMainDeleteEdit);
-			ResponseEntity<?> responseEntity = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(bodyMap);
+			responseEntity = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(bodyMap);
 			return responseEntity;
 		}
 		log.error("Saliendo del método executeGetByIdKardex() de la clase ImplGetByIdKardex");
-		ResponseEntity<?> responseEntity = ResponseEntity.status(HttpStatus.OK).body(bodyMap);
 		return responseEntity;
 	}
 }

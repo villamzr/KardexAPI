@@ -25,7 +25,6 @@ public class ServicePutKardex {
 			setRestTemplateResult(restTemplate.exchange(url, HttpMethod.PUT, request, KardexMainPut.class));
 		} catch (Exception e) {
 			log.error("Ha ocurrido un error al consumir el servicio del endpoint http://localhost:8090/kardex");
-			e.printStackTrace();
 		}
 		return restTemplate;
 	}
